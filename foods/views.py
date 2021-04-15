@@ -20,4 +20,3 @@ class FoodDetailView(APIView):
         serialized_foods = FoodSerializer(foods)
         return Response(serialized_foods.data, status=status.HTTP_200_OK)
 
-
