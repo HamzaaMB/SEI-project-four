@@ -2,7 +2,7 @@ from django.db import models
 
 class Food(models.Model):
     title = models.CharField(max_length=100)
-    calories = models.CharField(max_length=50)
+    calories = models.FloatField()
     protein = models.CharField(max_length=50)
     carbs = models.CharField(max_length=50)
     fat = models.CharField(max_length=50)
