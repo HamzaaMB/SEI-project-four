@@ -9,7 +9,6 @@ class Food(models.Model):
     weight = models.CharField(max_length=50)
     serving = models.CharField(max_length=50)
     servingAs = models.CharField(max_length=50)
-    logbook = models.ManyToManyField('logbook.Logbook', related_name='logbooks')
 
     def __str__(self):
         return f"{self.title} - {self.calories}"
