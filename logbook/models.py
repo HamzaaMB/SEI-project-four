@@ -2,7 +2,6 @@ from django.db import models
 
 
 class Logbook(models.Model):
-    category = models.CharField(max_length=50)
     food = models.ForeignKey(
         "foods.Food",
         related_name="foods",
@@ -10,5 +9,5 @@ class Logbook(models.Model):
     )
 
     def __str__(self):
-        return f"{self.category}"
+        return f"{self.food}"
 

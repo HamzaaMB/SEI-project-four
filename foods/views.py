@@ -2,12 +2,15 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import NotFound
-from .serializers.populated import PopulatedFoodSerializer
+# from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
+
 
 from .models import Food
 from .serializers.common import FoodSerializer
 
 class FoodListView(APIView):
+
+    # permission_classes = (IsAuthenticated,)
 
     def get(self, _request):
         foods = Food.objects.all() #This returns everything from the database.

@@ -1,0 +1,30 @@
+[
+{
+  "model": "foods.food",
+  "pk": 1,
+  "fields": {
+    "title": "porridge",
+    "calories": 229.0,
+    "protein": "11",
+    "carbs": "26",
+    "fat": "9",
+    "weight": "30",
+    "serving": "1",
+    "servingAs": "bowl"
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 2,
+  "fields": {
+    "title": "eggs",
+    "calories": 70.0,
+    "protein": "6",
+    "carbs": "0",
+    "fat": "5",
+    "weight": "17",
+    "serving": "1",
+    "servingAs": "egg"
+  }
+}
+]
