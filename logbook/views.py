@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.exceptions import NotFound
+from rest_framework.exceptions import NotFound, PermissionDenied
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Logbook
@@ -27,16 +27,23 @@ class LogbookListView(APIView):
 
 class LogbookDetailView(APIView):
 
-    def get_logbook(self, pk):
-        try:
-            Logbook.objects.get(pk=pk)
-        except Logbook.DoesNotExist:
-            raise NotFound(detail="Cannot find Logbook")
+    permission_classes = (IsAuthenticated,)
 
     def get(self, _request, pk):
-        logbook = self.get_logbook(pk=pk)
+        logbook = Logbook.objects.get(pk=pk)
         serialized_logbook = PopulatedLogbookSerializer(logbook)
         return Response(serialized_logbook.data, status=status.HTTP_200_OK)
+
+    def delete(self, request, pk):
+        try:
+            logbook_to_delete = Logbook.objects.get(pk=pk)
+        except Logbook.DoesNotExist:
+            raise NotFound()
+        if logbook_to_delete.owner != request.user:
+            raise PermissionDenied()
+        logbook_to_delete.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
     # def post(self, request, pk):
     #Might need to revisit this after testing in the front-end. Requirement for user posting per 'logbook id' -> so the user can add food to a specific logbook.
