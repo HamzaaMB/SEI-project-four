@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.exceptions import NotFound
-# from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
+from rest_framework.exceptions import NotFound, PermissionDenied
+
 
 
 from .models import Food
@@ -31,4 +31,10 @@ class FoodDetailView(APIView):
         foods = self.get_food(pk=pk)
         serialized_foods = FoodSerializer(foods)
         return Response(serialized_foods.data, status=status.HTTP_200_OK)
+
+    def delete(self, request, pk):
+        food_to_delete = Food.objects.get(pk=pk)
+        food_to_delete.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+        
 
