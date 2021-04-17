@@ -1,12 +1,15 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.exceptions import NotFound
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Logbook
 from .serializers.populated import PopulatedLogbookSerializer
 
 
 class LogbookListView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def get(self, _request):
         logbooks = Logbook.objects.all()
@@ -24,8 +27,14 @@ class LogbookListView(APIView):
 
 class LogbookDetailView(APIView):
 
+    def get_logbook(self, pk):
+        try:
+            Logbook.objects.get(pk=pk)
+        except Logbook.DoesNotExist:
+            raise NotFound(detail="Cannot find Logbook")
+
     def get(self, _request, pk):
-        logbook = Logbook.objects.get(pk=pk)
+        logbook = self.get_logbook(pk=pk)
         serialized_logbook = PopulatedLogbookSerializer(logbook)
         return Response(serialized_logbook.data, status=status.HTTP_200_OK)
 
