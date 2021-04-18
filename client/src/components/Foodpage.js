@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 
-const Homepage = () => {
+const Foodpage = () => {
 
   const [foods, setFoods] = useState(null)
 
@@ -25,4 +25,4 @@ const Homepage = () => {
   )
 }
 
-export default Homepage
+export default Foodpage
