@@ -21,7 +21,7 @@ const Login = () => {
     event.preventDefault()
     const response = await axios.post('api/auth/login/', formData)
     window.localStorage.setItem('token', response.data.token)
-    history.push('/')
+    history.push('/logbook')
 
     console.log(response)
   }
