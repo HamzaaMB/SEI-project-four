@@ -3,6 +3,11 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&family=Ruda:wght@900&display=swap');
 
+Nav {
+  display: flex;
+  flex-direction: row;
+}
+
 /* NON-BOOTSTRAP */
 
 .logo {
@@ -42,10 +47,4 @@
 
 .hero-login {
   margin-top: 20px;
-}
-
-.nav-bar {
-  display: flex;
-  flex-direction: row;
-  
 }
