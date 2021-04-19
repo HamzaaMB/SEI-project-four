@@ -25,7 +25,7 @@ const Logbook = () => {
 
   return (
     <>
-      {userIsAuthenticated() && //also tried User is owner from helpers.
+      {userIsAuthenticated() &&
       <h1>
         {logbook[0].food}, {logbook[0].name}
       </h1>
