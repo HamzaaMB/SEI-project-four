@@ -8,7 +8,13 @@ const Homepage = () => {
 
   return (
     <>
-      <h1>Welcome to homepage</h1>
+      <div>
+        <div>You are what you eat.</div>
+        <div>
+          <button>Start Here</button>
+        </div>
+        <div>Already have an account? Login</div>
+      </div>
     </>
 
   )
