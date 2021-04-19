@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { userIsAuthenticated } from './auth/helpers/auth'
 
 
 const Logbook = () => {
@@ -8,16 +9,28 @@ const Logbook = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('/api/logbook/')
+      const token = window.localStorage.getItem('token')
+      const { data } = await axios.get('/api/logbook/', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       setLogbook(data)
     }
     getData()
   }, [])
 
   if (!logbook) return null
-  console.log(logbook)
+
+
   return (
-    <h1>hello</h1>
+    <>
+      {userIsAuthenticated() && //also tried User is owner from helpers.
+      <h1>
+        {logbook[0].food}, {logbook[0].name}
+      </h1>
+      }
+    </>
   )
 }
 
