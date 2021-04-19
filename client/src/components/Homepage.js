@@ -10,11 +10,11 @@ const Homepage = () => {
   return (
     <>
       <div className ="hero-container">
-        <div className="main-title">You are<br/> what you<br/> eat.</div>
+        <div className="hero-title">You are<br/> what you<br/> eat.</div>
         <div>
-          <Button className="start-button" variant="primary" href="/foods">Start Here</Button>
+          <Button className="hero-button" variant="primary" href="/foods">Start Here</Button>
         </div>
-        <div>Already have an account? Login</div>
+        <div className="hero-login">Already have an account? <a href="/login">Login</a></div>
       </div>
     </>
 
