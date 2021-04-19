@@ -26,7 +26,7 @@ const MyNavbar = () => {
       <div className="logo">
         <p>My Foodie Pal?</p>
       </div>
-      <Navbar bg="primary" expand="lg" variamt="dark"> 
+      <Navbar style={{ width: '80%', margin: 'auto' }} bg="primary" expand="lg" variamt="dark"> 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
