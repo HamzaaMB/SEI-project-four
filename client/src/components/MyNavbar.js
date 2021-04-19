@@ -30,23 +30,25 @@ const MyNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <div className="nav-item-left">
-              <Nav.Link href="/foods">Food</Nav.Link>
-              <Nav.Link href="/about">About</Nav.Link>
-            </div>
-            <div className="nav-item-right">
-              {userIsAuthenticated() &&
+            <div className="main-navbar">
+              <div className="nav-item-left">
+                <Nav.Link href="/foods">Food</Nav.Link>
+                <Nav.Link href="/about">About</Nav.Link>
+              </div>
+              <div className="nav-item-right">
+                {userIsAuthenticated() &&
           <>
             <Nav.Link href="/logbook">Logbook</Nav.Link>
             <Nav.Link onClick = {handleLogout}>Logout</Nav.Link>
           </>  
-              }
-              {!userIsAuthenticated() &&
+                }
+                {!userIsAuthenticated() &&
           <> 
             <Nav.Link className="border-left pl-2 ml-auto" href="/login">Login</Nav.Link>
             <Nav.Link className="border-left pl-2 ml-auto" href="/register">Register</Nav.Link>
           </>
-              }
+                }
+              </div>
             </div>
           </Nav>  
         </Navbar.Collapse>
