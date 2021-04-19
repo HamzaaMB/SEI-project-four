@@ -1,9 +1,10 @@
 /* BOOTSTRAP */
 
 @import "~bootstrap/scss/bootstrap";
-
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&family=Ruda:wght@900&display=swap');
 
 /* NON-BOOTSTRAP */
+
 .logo {
   display: flex;
   align-items: center;
@@ -11,3 +12,31 @@
   margin: 0 auto;
   width: 130vh
 }
+
+.main-title {
+  font-family: 'Exo', sans-serif;
+  font-size: 70px;
+  line-height: 75px;
+}
+
+.hero-container {
+  width: 130vh;
+  margin: auto;
+  height: 100vh;
+  margin-top: 50px;
+}
+
+.start-button {
+  width: 250px;
+  height: 55px;
+  margin: 0 auto;
+  padding: 0;
+  display: inline-block;
+  line-height: 50px;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
