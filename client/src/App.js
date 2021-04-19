@@ -7,6 +7,7 @@ import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import Logbook from './components/Logbook'
 import MyNavbar from './components/MyNavbar'
+import About from './components/About'
 
 
 const App = () => {
@@ -35,6 +36,10 @@ const App = () => {
           <Route path = "/logbook">
             <MyNavbar class="nav-home" />
             <Logbook />
+          </Route>
+          <Route>
+            <MyNavbar class="nav-home" />
+            <About />
           </Route>
         </Switch>
       </BrowserRouter>
