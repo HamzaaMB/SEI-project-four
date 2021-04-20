@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
 
-const Foodpage = () => {
+const FoodIndex = () => {
 
   const [foods, setFoods] = useState(null)
 
@@ -19,10 +20,19 @@ const Foodpage = () => {
   if (!foods) return null
   return (
     <>
-      <h1>{foods[0].title}</h1>
+      <div>
+        {foods.map(food => {
+          return <Link to={`/foods/${food.id}`} key={food.id}>
+            <li>
+              <h1>{food.title}</h1>
+            </li>
+          </Link>
+        })}
+      </div>
+      
     </>
 
   )
 }
 
-export default Foodpage
+export default FoodIndex

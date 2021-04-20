@@ -2,12 +2,13 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Homepage from './components/Homepage'
-import Foodpage from './components/Foodpage'
+import FoodIndex from './components/FoodIndex'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import Logbook from './components/Logbook'
 import MyNavbar from './components/MyNavbar'
 import About from './components/About'
+import FoodShow from './components/FoodShow'
 
 
 const App = () => {
@@ -21,9 +22,13 @@ const App = () => {
             <MyNavbar class="nav-home" />
             <Homepage />
           </Route>
+          <Route path ="/foods/:id">
+            <MyNavbar class="nav-home" />
+            <FoodShow />
+          </Route>
           <Route path ="/foods">
             <MyNavbar class="nav-home" />
-            <Foodpage />
+            <FoodIndex />
           </Route>
           <Route path = "/login">
             <MyNavbar class="nav-home" />
