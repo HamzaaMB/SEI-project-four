@@ -39,20 +39,20 @@ const FoodShow = () => {
             <h2 className="item-title">{food.title}</h2>
           </div>
           <div className="item-serving">
-            <h3>{food.serving} {food.servingAs}</h3>
+            <h3>Serving size: {food.serving} {food.servingAs}</h3>
           </div>
           <div className="macro-container">
             <div className="macro-calorie">
-              <h4>{food.calories} <span>calories</span></h4>
+              <h4 className="food-calories">{food.calories}</h4><span className="calories-span">calories</span>
             </div>
             <div className="macro-carbs">
-              <h4>{food.carbs}<span>g</span></h4>
+              <span className="calorie-percentage">5%</span><h4 className="carbs macro">{food.carbs}<span className="gram-span">g</span></h4><span className="macro-content">Carbs</span>
             </div>
             <div className="macro-fat">
-              <h4>{food.fat}<span>g</span></h4>
+              <span className="calorie-percentage">5%</span><h4 className="fat macro">{food.fat}<span className="gram-span">g</span></h4><span className="macro-content">Fat</span>
             </div>
             <div className="macro-protein">
-              <h4>{food.protein}<span>g</span></h4>
+              <span className="calorie-percentage">5%</span><h4 className="protein macro">{food.protein}<span className="gram-span">g</span></h4><span className="macro-content">Protein</span>
             </div>
           </div>
           <div className="item-add">
