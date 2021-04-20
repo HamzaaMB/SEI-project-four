@@ -11,9 +11,10 @@ from .serializers.populated import PopulatedLogbookSerializer
 
 
 class LogbookListView(APIView): 
-    # permission_classes = (IsAuthenticated,)
-    def get(self, _request):
-        logbooks = Logbook.objects.all()
+    permission_classes = (IsAuthenticated,)
+    def get(self, request):
+        logbooks = Logbook.objects.filter(owner_id=request.user.id)
+        print(logbooks)
         serialized_logbooks = PopulatedLogbookSerializer(logbooks, many=True)
         return Response(serialized_logbooks.data, status=status.HTTP_200_OK)
 
