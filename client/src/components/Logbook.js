@@ -27,7 +27,7 @@ const Logbook = () => {
     <>
       {userIsAuthenticated() &&
       <h1>
-        {logbook[0].food}, {logbook[0].name}
+        {logbook[0].name}, {logbook[0].food}
       </h1>
       }
     </>

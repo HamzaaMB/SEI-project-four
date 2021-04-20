@@ -2,14 +2,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import NotFound, PermissionDenied
-from rest_framework.permissions import IsAuthenticated
+# from rest_framework.permissions import IsAuthenticated
 
 from .models import Logbook
 from .serializers.populated import PopulatedLogbookSerializer
 
 
 class LogbookListView(APIView):
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     def get(self, _request):
         logbooks = Logbook.objects.all()
@@ -27,10 +27,13 @@ class LogbookListView(APIView):
 
 class LogbookDetailView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
-    def get(self, _request, pk):
+    def get(self, request, pk):
+        
+        user = request.data.get('id')
         logbook = Logbook.objects.get(pk=pk)
+        
         serialized_logbook = PopulatedLogbookSerializer(logbook)
         return Response(serialized_logbook.data, status=status.HTTP_200_OK)
 
