@@ -1,8 +1,11 @@
-/* BOOTSTRAP */
 
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&family=Ruda:wght@900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+
+/* BOOTSTRAP */
+
 //   display: flex;
 //   flex-direction: row;
   
@@ -51,6 +54,8 @@
 
 
 /* FOOD SHOW PAGE */
+
+
 .main-container {
   border-top: rgb(52, 132, 224);
 }
@@ -62,9 +67,14 @@
 } 
 
 .item-title {
-  font-family: 'Exo', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 52px;
   text-transform: capitalize;
+}
+
+.item-serving {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 42px;
 }
 
 .food-calories {
@@ -88,7 +98,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-family: 'Exo', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .macro-carbs, .macro-fat, .macro-protein {
@@ -97,7 +107,7 @@
 
 .carbs-percentage, .protein-percentage, .fat-percentage {
   font-weight: 500;
-  font-family: 'Exo', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 24px;
 }
 
