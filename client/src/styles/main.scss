@@ -2,8 +2,7 @@
 
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&family=Ruda:wght@900&display=swap');
-
-// .main-navbar {
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap');
 //   display: flex;
 //   flex-direction: row;
   
@@ -62,6 +61,26 @@
   justify-content: space-around;
 } 
 
+.item-title {
+  font-family: 'Exo', sans-serif;
+  font-size: 52px;
+  text-transform: capitalize;
+}
+
+.food-calories {
+  font-size: 66px;
+}
+
+.calories-span{
+  color: rgb(160, 158, 158);
+  font-size: 20px;
+  margin-top: -10px;
+}
+
+.macro {
+  font-size: 32px;
+}
+
 .macro-calorie, .macro-carbs, .macro-fat, .macro-protein{
   height: 150px;
   width: 150px;
@@ -69,10 +88,17 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-family: 'Exo', sans-serif;
+}
+
+.macro-carbs, .macro-fat, .macro-protein {
+  font-size: 18px;
 }
 
 .carbs-percentage, .protein-percentage, .fat-percentage {
   font-weight: 500;
+  font-family: 'Exo', sans-serif;
+  font-size: 24px;
 }
 
 .carbs-percentage {

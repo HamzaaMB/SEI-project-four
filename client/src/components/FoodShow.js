@@ -47,7 +47,7 @@ const FoodShow = () => {
           </div>
           <div className="macro-container">
             <div className="macro-calorie">
-              <h4 className="food-calories">{food.calories}</h4><span className="calories-span">calories</span>
+              <h4 className="food-calories">{food.calories}</h4><span className="calories-span">Calories</span>
             </div>
             <div className="macro-carbs">
               <span className="carbs-percentage">{CarbsPercentage + '%'}</span><h4 className="carbs macro">{food.carbs}<span className="gram-span">g</span></h4><span className="macro-content">Carbs</span>
