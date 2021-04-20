@@ -21,7 +21,7 @@ const Logbook = () => {
   }, [])
 
   if (!logbook) return null
-
+  console.log(logbook)
 
   return (
     <>

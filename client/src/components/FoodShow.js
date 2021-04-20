@@ -15,15 +15,16 @@ const FoodShow = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`api/foods/${params.id}`)
+      const response = await axios.get(`api/foods/${params.id}/`)
       setFood(response.data)
     }
     getData()
   }, [])
-
+  
 
   if (!food) return null
   console.log(food)
+  
   
   return <p>Working new page</p>
   

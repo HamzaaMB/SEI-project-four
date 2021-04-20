@@ -26,7 +26,7 @@ const App = () => {
             <MyNavbar class="nav-home" />
             <FoodShow />
           </Route>
-          <Route path ="/foods">
+          <Route exact path ="/foods">
             <MyNavbar class="nav-home" />
             <FoodIndex />
           </Route>
