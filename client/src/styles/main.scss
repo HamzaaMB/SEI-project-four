@@ -3,11 +3,11 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&family=Ruda:wght@900&display=swap');
 
-.main-navbar {
-  display: flex;
-  flex-direction: row;
+// .main-navbar {
+//   display: flex;
+//   flex-direction: row;
   
-}
+// } being overriden by navbar class set by bootstrap, reach out to documentation to override.
 
 /* NON-BOOTSTRAP */
 
@@ -25,7 +25,7 @@
   line-height: 75px;
 }
 
-.hero-container {
+.hero-container, .item-container {
   width: 130vh;
   margin: auto;
   height: 100vh;
@@ -49,3 +49,10 @@
 .hero-login {
   margin-top: 20px;
 }
+
+
+/* FOOD SHOW PAGE */
+
+.main-container {
+  
+} 

@@ -17,17 +17,11 @@ const FoodShow = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`/api/foods/${params.id}/`)
-      setFood(response.data)
+      const { data } = await axios.get(`/api/foods/${params.id}/`)
+      setFood(data)
     }
     getData()
   }, [])
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const response = await axios.get('api/logbooks')
-  //   }
-  // })
   
   const handleSubmit = (event) => {
     console.log('working', event.target)
@@ -36,12 +30,38 @@ const FoodShow = () => {
   if (!food) return null
   console.log(food)
 
-  
-  
   return (
     <> 
-      <p>{food.title}</p>
-      <Button onClick={handleSubmit}>Add Food</Button>
+      <section className="main-container">
+        <div className="item-container">
+          <div className="item-search">Search bar - if there is time.</div>
+          <div className="food-title">
+            <h2 className="item-title">{food.title}</h2>
+          </div>
+          <div className="item-serving">
+            <h3>{food.serving} {food.servingAs}</h3>
+          </div>
+          <div className="macro-container">
+            <div className="macro-calorie">
+              <h4>{food.calories} <span>calories</span></h4>
+            </div>
+            <div className="macro-carbs">
+              <h4>{food.carbs}<span>g</span></h4>
+            </div>
+            <div className="macro-fat">
+              <h4>{food.fat}<span>g</span></h4>
+            </div>
+            <div className="macro-protein">
+              <h4>{food.protein}<span>g</span></h4>
+            </div>
+          </div>
+          <div className="item-add">
+            <Button onClick={handleSubmit}>Add to Logbook</Button>
+          </div>
+        </div>
+      </section>
+        
+  
     </>
   )
 
