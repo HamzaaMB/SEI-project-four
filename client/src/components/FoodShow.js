@@ -15,7 +15,7 @@ const FoodShow = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`api/foods/${params.id}/`)
+      const response = await axios.get(`/api/foods/${params.id}/`)
       setFood(response.data)
     }
     getData()
