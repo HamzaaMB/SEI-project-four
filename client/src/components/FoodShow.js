@@ -30,6 +30,10 @@ const FoodShow = () => {
   if (!food) return null
   console.log(food)
 
+  const fatPercentage = Math.floor(parseFloat(`${food.fat}`) / parseFloat(`${food.weight}`) * 100)
+  const ProteinPercentage = Math.floor(parseFloat(`${food.protein}`) / parseFloat(`${food.weight}`) * 100)
+  const CarbsPercentage = Math.floor(parseFloat(`${food.carbs}`) / parseFloat(`${food.weight}`) * 100)
+  
   return (
     <> 
       <section className="main-container">
@@ -46,13 +50,13 @@ const FoodShow = () => {
               <h4 className="food-calories">{food.calories}</h4><span className="calories-span">calories</span>
             </div>
             <div className="macro-carbs">
-              <span className="calorie-percentage">5%</span><h4 className="carbs macro">{food.carbs}<span className="gram-span">g</span></h4><span className="macro-content">Carbs</span>
+              <span className="carbs-percentage">{CarbsPercentage + '%'}</span><h4 className="carbs macro">{food.carbs}<span className="gram-span">g</span></h4><span className="macro-content">Carbs</span>
             </div>
             <div className="macro-fat">
-              <span className="calorie-percentage">5%</span><h4 className="fat macro">{food.fat}<span className="gram-span">g</span></h4><span className="macro-content">Fat</span>
+              <span className="fat-percentage">{fatPercentage + '%'}</span><h4 className="fat macro">{food.fat}<span className="gram-span">g</span></h4><span className="macro-content">Fat</span>
             </div>
             <div className="macro-protein">
-              <span className="calorie-percentage">5%</span><h4 className="protein macro">{food.protein}<span className="gram-span">g</span></h4><span className="macro-content">Protein</span>
+              <span className="protein-percentage">{ProteinPercentage + '%'}</span><h4 className="protein macro">{food.protein}<span className="gram-span">g</span></h4><span className="macro-content">Protein</span>
             </div>
           </div>
           <div className="item-add">

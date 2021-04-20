@@ -52,7 +52,9 @@
 
 
 /* FOOD SHOW PAGE */
-
+.main-container {
+  border-top: rgb(52, 132, 224);
+}
 .macro-container {
   align-items: center;
   display: flex;
@@ -67,4 +69,20 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.carbs-percentage, .protein-percentage, .fat-percentage {
+  font-weight: 500;
+}
+
+.carbs-percentage {
+  color: rgb(209, 68, 202);
+}
+
+.protein-percentage {
+  color: rgb(52, 132, 224);
+}
+
+.fat-percentage {
+  color: #f84a4a;
 }
