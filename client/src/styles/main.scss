@@ -127,11 +127,23 @@
 .results-container {
   width: 130vh;
   margin: auto;
+  margin-top: 50px;
 }
 
 .food-list {
   height: 20vh;
   list-style-type: none;
   text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eeeeee;
+  margin-top: -45px;
+
+}
+
+.serving-search, .macros-search {
+  text-decoration: none;
+  color: black;
+  margin-top: 15px;
 }
 
