@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&family=Ruda:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
-
 /* BOOTSTRAP */
 
 //   display: flex;
@@ -122,3 +121,17 @@
 .fat-percentage {
   color: #f84a4a;
 }
+
+/* FOOD INDEX */
+
+.results-container {
+  width: 130vh;
+  margin: auto;
+}
+
+.food-list {
+  height: 20vh;
+  list-style-type: none;
+  text-transform: capitalize;
+}
+

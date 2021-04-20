@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
 // import { userIsOwner } from './auth/helpers/auth'
 // import FoodIndex from './FoodIndex'
 
@@ -38,7 +39,13 @@ const FoodShow = () => {
     <> 
       <section className="main-container">
         <div className="item-container">
-          <div className="item-search">Search bar - if there is time.</div>
+          <div className="item-crumb">
+            <Breadcrumb>
+              <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+              <Breadcrumb.Item href="/foods">Food Search</Breadcrumb.Item>
+              <Breadcrumb.Item active>Food</Breadcrumb.Item>
+            </Breadcrumb>
+          </div>
           <div className="food-title">
             <h2 className="item-title">{food.title}</h2>
           </div>
