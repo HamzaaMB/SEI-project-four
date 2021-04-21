@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 const LogbookShow = () => {
 
@@ -21,6 +22,10 @@ const LogbookShow = () => {
     }
     getData()
   }, [])
+
+  // const handleDelete (event) => {
+  //   console.log(event.target.value)
+  // }
 
   if (!logbook) return null
   console.log(logbook)
@@ -47,6 +52,7 @@ const LogbookShow = () => {
               }, 0)}
             </div>
           </div>
+          <div><Button className="hero-button" variant="primary" href="/logbook">Back to Logbooks</Button></div>
         </div>
       </div>
     </>
