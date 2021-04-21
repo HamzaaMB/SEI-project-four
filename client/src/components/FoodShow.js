@@ -55,7 +55,7 @@ const FoodShow = () => {
       <section className="main-container">
         <div className="item-container">
           <div className="item-crumb">
-            <Breadcrumb>
+            <Breadcrumb style={{ color: 'white' }}>
               <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
               <Breadcrumb.Item href="/foods">Food Search</Breadcrumb.Item>
               <Breadcrumb.Item active>Food</Breadcrumb.Item>
@@ -65,7 +65,7 @@ const FoodShow = () => {
             <h2 className="item-title">{food.title}</h2>
           </div>
           <div className="item-serving">
-            <h3>Serving size: {food.serving} {food.servingAs}</h3>
+            <h3 className="serving-size">Serving size: {food.serving} {food.servingAs}</h3>
           </div>
           <div className="macro-container">
             <div className="macro-calorie">
@@ -97,8 +97,6 @@ const FoodShow = () => {
           </div>
         </div>
       </section>
-        
-  
     </>
   )
 

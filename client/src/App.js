@@ -6,9 +6,11 @@ import FoodIndex from './components/FoodIndex'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import Logbook from './components/Logbook'
+import LogbookShow from './components/LogbookShow'
 import MyNavbar from './components/MyNavbar'
 import About from './components/About'
 import FoodShow from './components/FoodShow'
+
 
 
 const App = () => {
@@ -37,6 +39,10 @@ const App = () => {
           <Route path = "/register">
             <MyNavbar class="nav-home" />
             <Register />
+          </Route>
+          <Route path = "/logbook/:id">
+            <MyNavbar class="nav-home" />
+            <LogbookShow />
           </Route>
           <Route path = "/logbook">
             <MyNavbar class="nav-home" />

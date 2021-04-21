@@ -16,35 +16,28 @@ const MyNavbar = () => {
   }
 
   console.log(handleLogout)
-  // const location = useLocation()
-
-  // useEffect(() => {
-  // }, [location.pathname])
 
   return (
     <>
-      <div className="logo">
-        <p>My Foodie Pal?</p>
-      </div>
       <Navbar style={{ paddingLeft: '185px' }} bg="primary" variamt="dark"> 
+        <Navbar.Brand href="/"><h1 className="brand-logo">TrackMyCal</h1></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link href="/foods">Food</Nav.Link>
-            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link style ={{ color: 'white' }} href="/foods">Food</Nav.Link>
+            <Nav.Link style ={{ color: 'white' }} href="/about">About</Nav.Link>
             {userIsAuthenticated() &&
           <>
-            <Nav.Link href="/logbook">Logbook</Nav.Link>
-            <Nav.Link onClick = {handleLogout}>Logout</Nav.Link>
+            <Nav.Link style ={{ color: 'white' }} href="/logbook">Logbook</Nav.Link>
+            <Nav.Link style ={{ color: 'white' }} onClick = {handleLogout}>Logout</Nav.Link>
           </>  
             }
             {!userIsAuthenticated() &&
           <> 
-            <Nav.Link href="/login">Login</Nav.Link>
-            <Nav.Link href="/register">Register</Nav.Link>
+            <Nav.Link style ={{ color: 'white' }} href="/login">Login</Nav.Link>
+            <Nav.Link style ={{ color: 'white' }} href="/register">Register</Nav.Link>
           </>
             }
-
           </Nav>  
         </Navbar.Collapse>
       </Navbar>
@@ -56,12 +49,3 @@ const MyNavbar = () => {
 
 export default MyNavbar
 
-// {userIsAuthenticated &&
-//   <>
-//     <Nav.Link href="/logbook">Logbook</Nav.Link>
-//     <Nav.Link onClick = {handleLogout}>Logout</Nav.Link>
-//   </>
-//   }
-
-//to add margin
-//style={{ marginTop: '100px' }}
