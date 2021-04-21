@@ -31,7 +31,7 @@ const FoodShow = () => {
     getData()
   }, [])
 
-  const [logbook, setLogbook] = useState(options[0])
+  const [logbook, setLogbook] = useState(null)
   const [currentLogbook, setCurrentLogbook] = useState(null)
   const handleSelectChange = (item) => {
     setCurrentLogbook(null)

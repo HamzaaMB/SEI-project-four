@@ -170,6 +170,20 @@ input {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+.register-wrapper {
+  width: 130vh;
+  height: 80vh;
+  margin: 50px auto;
+  text-transform: capitalize;
+}
+
+.register-box {
+  padding-top: 20px;
+  border-bottom: 1px solid #a09d9d8e;
+  border-top: 1px solid #a09d9d8e;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
 .login-box {
   height: 50vh;
   width: 50vh;
@@ -194,4 +208,8 @@ input {
   justify-content: center;
   align-items: center;
   
+}
+
+.register-button {
+  padding-bottom: 20px;
 }
