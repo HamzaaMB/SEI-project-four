@@ -212,4 +212,33 @@ input {
 
 .register-button {
   padding-bottom: 20px;
+} 
+
+/* LOGBOOK PAGE */ 
+
+.logbook-box {
+  width: 130vh;
+  margin: 20px auto;
+  height: 150vh;
+  border-top: 1px solid #a09d9d8e;
+  border-bottom: 1px solid #a09d9d8e;
 }
+
+.logbook-top {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+}
+
+.logbook-welcome, .logbook-status {
+  width: 45vh;
+  height: 5vh;
+  border-bottom: 1px solid #a09d9d8e;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Exo', sans-serif;
+  padding-top: 10px;
+}
+
+
+
