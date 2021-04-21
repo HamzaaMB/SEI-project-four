@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import Button from 'react-bootstrap/Button'
 // import { userIsAuthenticated } from './auth/helpers/auth'
 
 
@@ -33,6 +34,15 @@ const Logbook = () => {
             </div>
             <div className="logbook-status">
               <h4>You have {logbook.length} logbooks</h4>
+            </div>
+          </div>
+          <div className="logbook-main">
+            <div className="logbook-user">
+              <div className="food-user">
+
+              </div>
+              <div className="total-user"></div>
+              <Button className="hero-button" variant="primary" href="/foods">Add Food</Button>
             </div>
           </div>
         </div>
