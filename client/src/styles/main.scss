@@ -242,6 +242,13 @@ input {
 
 .logbook-main {
   display: flex;
+  flex-direction: column;
+}
+
+.name-book {
+  display: flex;
+  justify-content: space-between;
+  width: 60vh;
 }
 
 
