@@ -4,6 +4,7 @@ from rest_framework import status
 from rest_framework.exceptions import NotFound, PermissionDenied
 from rest_framework.permissions import IsAuthenticated
 
+from foods.models import Food
 from .models import Logbook
 from .serializers.common import LogbookSerializer
 from .serializers.populated import PopulatedLogbookSerializer
@@ -25,11 +26,16 @@ class LogbookDetailView(APIView): #individual logbook to GET on front end and PO
 
     def post(self, request, pk):
         request.data["owner"] = request.user.id
-        logbook_to_add = LogbookSerializer(data=request.data)
-        if logbook_to_add.is_valid():
-            logbook_to_add.save()
-            return Response(logbook_to_add.data, status=status.HTTP_201_CREATED)
-        return Response(logbook_to_add.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+        logbook = Logbook.objects.get(pk=pk)
+        food_to_add = Food.objects.get(pk=request.data["id"])
+        logbook.food.add(food_to_add)
+        logbook.save()
+        serialized_logbooks = PopulatedLogbookSerializer(logbook)
+        return Response(serialized_logbooks.data, status=status.HTTP_201_CREATED)
+        # if food_to_add.is_valid():
+        #     logbook.save()
+        #     return Response(food_to_add.data, status=status.HTTP_201_CREATED)
+        # return Response(food_to_add.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 
     def delete(self, request, pk):
