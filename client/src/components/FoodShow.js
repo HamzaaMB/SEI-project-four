@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import Button from 'react-bootstrap/Button'
+// import Button from 'react-bootstrap/Button'
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
-// import { userIsOwner } from './auth/helpers/auth'
+import { userIsAuthenticated } from './auth/helpers/auth'
+import Select from 'react-select'
 // import FoodIndex from './FoodIndex'
 
 
@@ -13,11 +14,13 @@ const FoodShow = () => {
 
 
   const [food, setFood] = useState(null)
-  // const [logbook, setLogbook] = useState({
-  //   name: '',
-  //   food: '',
-  // })
+  
+  const options = [
+    { name: 'jon', food: 'banana' },
+    { name: 'q', food: 'apple' }
+  ]
 
+  
 
 
   useEffect(() => {
@@ -28,15 +31,16 @@ const FoodShow = () => {
     getData()
   }, [])
 
-  
-  const handleChange = event => {
-    console.log(event.target.value)
+  const [logbook, setLogbook] = useState(options[0])
+  const [currentLogbook, setCurrentLogbook] = useState(null)
+  const handleSelectChange = (item) => {
+    setCurrentLogbook(null)
+    setLogbook(item)
   }
+  console.log('logbook', logbook)
+  console.log('current logbook', currentLogbook)
 
-  const handleLogbookSubmit = () => {
-    console.log(event.target.value)
-    
-  }
+  
 
   if (!food) return null
   console.log(food)
@@ -78,7 +82,18 @@ const FoodShow = () => {
             </div>
           </div>
           <div className="item-add">
-            <Button onChange ={handleChange} value ={food.id} onClick={handleLogbookSubmit}>Add to Logbook</Button>
+            { userIsAuthenticated && 
+              <Select
+                value={logbook}
+                onChange={handleSelectChange}
+                options={options}
+                getOptionValue={(option) => option.food}
+                getOptionLabel={(option) => option.food}>
+              </Select>
+            }
+            { !userIsAuthenticated &&
+              <h4>Login to add to logbook</h4>
+            }
           </div>
         </div>
       </section>
