@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
+import Button from 'react-bootstrap/Button'
 
 
 const Login = () => {
@@ -28,30 +29,37 @@ const Login = () => {
 
 
   return (
-
-    <form onSubmit={handleSubmit}>
-      <label className="label">Email</label>
-      <input
-        className="input"
-        placeholder="Email"
-        name="email"
-        value={formData.email}
-        onChange={(event) => handleChange(event)}
-      />
-              
-      <label className="label">Password</label>
-      <input
-        className="input"
-        type="password"
-        placeholder="Password"
-        name="password"
-        value={formData.password}
-        onChange={(event) => handleChange(event)}
-      />
-      <button type="submit" className="button register-button">Log Me In!</button>
-    </form>
+    <section className="login-wrapper">
+      <div className="login-box">
+        <form className= "login-form" onSubmit={handleSubmit}>
+          <div className="email-container">
+            <label className="label">Email</label>
+            <input
+              className="input"
+              placeholder="Email"
+              name="email"
+              value={formData.email}
+              onChange={(event) => handleChange(event)}
+            />
+          </div>
+          <div className="password-container">
+            <label className="label">Password</label>
+            <input
+              className="input"
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={formData.password}
+              onChange={(event) => handleChange(event)}
+            />
+          </div>
+          <div className="login-button">
+            <Button type="submit" className="hero-button" variant="primary">Login</Button>
+          </div>
+        </form>
+      </div>
+    </section>
   )
-
 
 }
 
