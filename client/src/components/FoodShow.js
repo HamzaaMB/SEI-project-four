@@ -13,6 +13,10 @@ const FoodShow = () => {
 
 
   const [food, setFood] = useState(null)
+  // const [logbook, setLogbook] = useState({
+  //   name: '',
+  //   food: '',
+  // })
 
 
 
@@ -23,13 +27,20 @@ const FoodShow = () => {
     }
     getData()
   }, [])
+
   
-  const handleSubmit = (event) => {
-    console.log('working', event.target)
+  const handleChange = event => {
+    console.log(event.target.value)
+  }
+
+  const handleLogbookSubmit = () => {
+    console.log(event.target.value)
+    
   }
 
   if (!food) return null
   console.log(food)
+
 
   const fatPercentage = Math.floor(parseFloat(`${food.fat}`) / parseFloat(`${food.weight}`) * 100)
   const ProteinPercentage = Math.floor(parseFloat(`${food.protein}`) / parseFloat(`${food.weight}`) * 100)
@@ -67,7 +78,7 @@ const FoodShow = () => {
             </div>
           </div>
           <div className="item-add">
-            <Button onClick={handleSubmit}>Add to Logbook</Button>
+            <Button onChange ={handleChange} value ={food.id} onClick={handleLogbookSubmit}>Add to Logbook</Button>
           </div>
         </div>
       </section>
