@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { userIsAuthenticated } from './auth/helpers/auth'
+// import { userIsAuthenticated } from './auth/helpers/auth'
 
 
 const Logbook = () => {
@@ -25,10 +25,17 @@ const Logbook = () => {
 
   return (
     <>
-      {userIsAuthenticated() &&
-      <h1>
-        {logbook[0].name}, {logbook[0].food}
-      </h1>
+      { (logbook.length > 0) &&
+      <div>
+        {logbook.map(item => {
+          return <h3 key={item.id}>{item.name}</h3>
+        })}
+        {logbook.map(item => {
+          return item.food.map(i => {
+            return <h4 key={i.id}>{i.title}</h4>
+          })
+        })}
+      </div>
       }
     </>
   )
