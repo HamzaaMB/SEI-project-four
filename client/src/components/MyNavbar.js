@@ -25,7 +25,6 @@ const MyNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             <Nav.Link style ={{ color: 'white' }} href="/foods">Food</Nav.Link>
-            <Nav.Link style ={{ color: 'white' }} href="/about">About</Nav.Link>
             {userIsAuthenticated() &&
           <>
             <Nav.Link style ={{ color: 'white' }} href="/logbook">Logbook</Nav.Link>

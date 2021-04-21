@@ -8,7 +8,6 @@ import Register from './components/auth/Register'
 import Logbook from './components/Logbook'
 import LogbookShow from './components/LogbookShow'
 import MyNavbar from './components/MyNavbar'
-import About from './components/About'
 import FoodShow from './components/FoodShow'
 
 
@@ -47,10 +46,6 @@ const App = () => {
           <Route path = "/logbook">
             <MyNavbar class="nav-home" />
             <Logbook />
-          </Route>
-          <Route>
-            <MyNavbar class="nav-home" />
-            <About />
           </Route>
         </Switch>
       </BrowserRouter>

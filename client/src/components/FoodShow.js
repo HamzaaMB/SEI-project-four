@@ -14,6 +14,7 @@ const FoodShow = () => {
 
 
   const [food, setFood] = useState(null)
+  const [formData, setFormData] = useState([])
   
   const options = [
     { name: 'jon', food: 'banana' },
@@ -31,14 +32,20 @@ const FoodShow = () => {
     getData()
   }, [])
 
-  const [logbook, setLogbook] = useState(null)
-  const [currentLogbook, setCurrentLogbook] = useState(null)
-  const handleSelectChange = (item) => {
-    setCurrentLogbook(null)
-    setLogbook(item)
+  const handleFormChange = event => {
+    console.log(event.target.value)
   }
-  console.log('logbook', logbook)
-  console.log('current logbook', currentLogbook)
+  console.log(setFormData)
+  console.log(formData)
+
+  // const [logbook, setLogbook] = useState(null)
+  // const [currentLogbook, setCurrentLogbook] = useState(null)
+  // const handleSelectChange = (item) => {
+  //   setCurrentLogbook(null)
+  //   setLogbook(item)
+  // }
+  // console.log('logbook', logbook)
+  // console.log('current logbook', currentLogbook)
 
   
 
@@ -84,8 +91,9 @@ const FoodShow = () => {
           <div className="item-add">
             { userIsAuthenticated && 
               <Select
-                value={logbook}
-                onChange={handleSelectChange}
+                onClick={handleFormChange}
+                value={options[0].food}
+                onChange={handleFormChange}
                 options={options}
                 getOptionValue={(option) => option.food}
                 getOptionLabel={(option) => option.food}>
