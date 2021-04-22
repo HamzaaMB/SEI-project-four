@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom'
 const FoodIndex = () => {
 
   const [foods, setFoods] = useState(null)
-
+  const [filteredFood, setFilteredFood] = useState([])
+  console.log(filteredFood)
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get('api/foods/')
@@ -17,9 +18,21 @@ const FoodIndex = () => {
   }, [])
   console.log(foods)
 
+  const handleChange = event => {
+    console.log(event.target.value)
+    const filteredArray = foods.filter(food => {
+      return food.title.toUpperCase().includes(event.target.value.toUpperCase())
+    })
+    setFilteredFood(filteredArray)
+  }
+
   if (!foods) return null
+
   return (
     <>
+      <div className='search'>
+        <input type ='text' placeholder='Search for foods' onChange={handleChange}></input>
+      </div>
       <div>
         {foods.map(food => {
           return <Link to={`/foods/${food.id}`} key={food.id}>
