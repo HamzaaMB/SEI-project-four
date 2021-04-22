@@ -19,6 +19,14 @@ class LogbookListView(APIView):
         serialized_logbooks = PopulatedLogbookSerializer(logbooks, many=True)
         return Response(serialized_logbooks.data, status=status.HTTP_200_OK)
 
+    def post(self, request):
+        request.data["owner"] = request.user.id
+        logbook_to_add = LogbookSerializer(data=request.data)
+        if logbook_to_add.is_valid():
+            logbook_to_add.save()
+            return Response(logbook_to_add.data, status=status.HTTP_201_CREATED)
+        return Response(logbook_to_add.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
 
 
 class LogbookDetailView(APIView): #individual logbook to GET on front end and POST and DELETE.
@@ -37,11 +45,6 @@ class LogbookDetailView(APIView): #individual logbook to GET on front end and PO
         logbook.save()
         serialized_logbooks = PopulatedLogbookSerializer(logbook)
         return Response(serialized_logbooks.data, status=status.HTTP_201_CREATED)
-        # if food_to_add.is_valid():
-        #     logbook.save()
-        #     return Response(food_to_add.data, status=status.HTTP_201_CREATED)
-        # return Response(food_to_add.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-
 
     def delete(self, request, pk):
         try:
