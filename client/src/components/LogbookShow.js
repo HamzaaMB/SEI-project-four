@@ -52,7 +52,9 @@ const LogbookShow = () => {
               }, 0)}
             </div>
           </div>
-          <div><Button className="hero-button" variant="primary" href="/logbook">Back to Logbooks</Button></div>
+          <div className="back-delete-buttons">
+            <div><Button className="hero-button" variant="primary" href="/logbook">Back to Logbooks</Button></div>
+          </div>
         </div>
       </div>
     </>
