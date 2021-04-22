@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import axios from 'axios'
-// import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button'
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import { userIsAuthenticated } from './auth/helpers/auth'
 import Select from 'react-select'
@@ -11,19 +11,15 @@ import Select from 'react-select'
 const FoodShow = () => {  
 
   const params = useParams()
-
+  const history = useHistory()
 
   const [food, setFood] = useState(null)
-  const [formData, setFormData] = useState([])
-  const [logbookId, setLogbookId] = useState([])
-  console.log(logbookId)
-  console.log(setFormData)
+  const [formData, setFormData] = useState({
+    food: '',
+  })
 
-  
-  const options = [
-    { name: 'jon', food: 'banana' },
-    { name: 'q', food: 'apple' }
-  ]
+  const [selectedLogbook, setSelectedLogbook] = useState(null)
+  console.log(setFormData)
 
   
 
@@ -34,34 +30,49 @@ const FoodShow = () => {
       setFood(data)
     }
     getData()
-  }, [])
+  }, []) 
 
-  const handleSubmit = async event => {
+  const handleExistingSubmit = async event => {
     event.preventDefault()
     const token = window.localStorage.getItem('token')
-    const { data } = await axios.get('/api/logbook/', { //this endpoint will need to be a post request with id taken from request in handlechange.
+    console.log('food ID>>', food.id)
+    const idToSend = {
+      id: food.id,
+    }
+    const response = await axios.post(`/api/logbook/${selectedLogbook.id}/`, idToSend, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
-    console.log('ignore', data)
+    history.push('/logbook')
+    console.log('submit response', response)
   }
 
+  useEffect(() => {
+    const getData = async () => {
+      const token = window.localStorage.getItem('token')
+      const { data } = await axios.get('/api/logbook', { //this endpoint will need the ID - /api/logbook/{loogbook.id} -> which is taken from select?
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }, 
+      })
+      setFormData(data)
+    }
+    console.log('latest', formData)
+    getData()
+  }, []) 
 
-  const handleChange = async (selected, name) => {
+  const handleExistingChange = async (selected) => {
     console.log('selected', selected)
-    console.log('name of selected', name)
-    const token = window.localStorage.getItem('token')
-    const { data } = await axios.get('/api/logbook/', { //this endpoint will need to be a post request with id taken from request in handlechange.
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    setLogbookId(data)
-    console.log('logbook details', data)
+    console.log('selected name', selected.name)
+
+    setSelectedLogbook(selected)
   }
 
-  console.log(formData)
+  console.log('logbook details', formData)
+
+  
+  console.log('state', selectedLogbook)
 
 
   if (!food) return null
@@ -105,21 +116,21 @@ const FoodShow = () => {
           </div>
           <div className="item-add">
             { userIsAuthenticated && 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleExistingSubmit}>
               <div className="field">
-                <label className="label">Add to existing logbook</label>
+                <label className="label-existing">Add to existing logbook</label>
                 <div className="control">
                   <Select
-                    options={options}
-                    onChange={(selected) => handleChange(selected)}
-                    getOptionValue={(option) => option.food}
-                    getOptionLabel={(option) => option.food}
+                    options={formData}
+                    onChange={(selected) => handleExistingChange(selected)}
+                    getOptionValue={(formData) => formData.name}
+                    getOptionLabel={(formData) => formData.name}
                   >
                   </Select>
                 </div>
               </div>
               <div className="field">
-                <button type="submit">Add Food</button>
+                <Button type="submit" className="hero-button" variant="primary">Add Food</Button>
               </div>
             </form>
             }
