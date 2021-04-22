@@ -32,22 +32,26 @@ const FoodShow = () => {
     getData()
   }, [])
 
-  const handleFormChange = event => {
-    console.log(event.target.value)
+  const handleSubmit = async event => {
+    event.preventDefault()
+    const token = window.localStorage.getItem('token')
+    const response = await axios.get('/api/logbook/', { //this endpoint will need to be a post request with id taken from request in handlechange.
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    console.log(response.data)
+    console.log('adding food', event)
   }
+
+
+  const handleFormChange = event => {
+    console.log(event.target)
+  }
+
   console.log(setFormData)
   console.log(formData)
 
-  // const [logbook, setLogbook] = useState(null)
-  // const [currentLogbook, setCurrentLogbook] = useState(null)
-  // const handleSelectChange = (item) => {
-  //   setCurrentLogbook(null)
-  //   setLogbook(item)
-  // }
-  // console.log('logbook', logbook)
-  // console.log('current logbook', currentLogbook)
-
-  
 
   if (!food) return null
   console.log(food)
@@ -90,14 +94,23 @@ const FoodShow = () => {
           </div>
           <div className="item-add">
             { userIsAuthenticated && 
-              <Select
-                onClick={handleFormChange}
-                value={options[0].food}
-                onChange={handleFormChange}
-                options={options}
-                getOptionValue={(option) => option.food}
-                getOptionLabel={(option) => option.food}>
-              </Select>
+            <form onSubmit={handleSubmit}>
+              <div className="field">
+                <label className="label">Add to existing logbook</label>
+                <div className="control">
+                  <Select
+                    options={options}
+                    isMulti
+                    onChange={handleFormChange}
+                    getOptionValue={(option) => option.food}
+                    getOptionLabel={(option) => option.food}>
+                  </Select>
+                </div>
+              </div>
+              <div className="field">
+                <button type="submit">Add Food</button>
+              </div>
+            </form>
             }
             { !userIsAuthenticated &&
               <h4>Login to add to logbook</h4>
