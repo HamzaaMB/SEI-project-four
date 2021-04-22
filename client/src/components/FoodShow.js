@@ -15,6 +15,10 @@ const FoodShow = () => {
 
   const [food, setFood] = useState(null)
   const [formData, setFormData] = useState([])
+  const [logbookId, setLogbookId] = useState([])
+  console.log(logbookId)
+  console.log(setFormData)
+
   
   const options = [
     { name: 'jon', food: 'banana' },
@@ -35,21 +39,28 @@ const FoodShow = () => {
   const handleSubmit = async event => {
     event.preventDefault()
     const token = window.localStorage.getItem('token')
-    const response = await axios.get('/api/logbook/', { //this endpoint will need to be a post request with id taken from request in handlechange.
+    const { data } = await axios.get('/api/logbook/', { //this endpoint will need to be a post request with id taken from request in handlechange.
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
-    console.log(response.data)
-    console.log('adding food', event)
+    console.log('ignore', data)
   }
 
 
-  const handleFormChange = event => {
-    console.log(event.target)
+  const handleChange = async (selected, name) => {
+    console.log('selected', selected)
+    console.log('name of selected', name)
+    const token = window.localStorage.getItem('token')
+    const { data } = await axios.get('/api/logbook/', { //this endpoint will need to be a post request with id taken from request in handlechange.
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    setLogbookId(data)
+    console.log('logbook details', data)
   }
 
-  console.log(setFormData)
   console.log(formData)
 
 
@@ -100,10 +111,10 @@ const FoodShow = () => {
                 <div className="control">
                   <Select
                     options={options}
-                    isMulti
-                    onChange={handleFormChange}
+                    onChange={(selected) => handleChange(selected)}
                     getOptionValue={(option) => option.food}
-                    getOptionLabel={(option) => option.food}>
+                    getOptionLabel={(option) => option.food}
+                  >
                   </Select>
                 </div>
               </div>
