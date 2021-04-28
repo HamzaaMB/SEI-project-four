@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-// import Button from 'react-bootstrap/Button'
-// import { userIsAuthenticated } from './auth/helpers/auth'
+
 
 
 const Logbook = () => {
@@ -23,7 +22,6 @@ const Logbook = () => {
   }, [])
 
   if (!logbook) return null
-  console.log(logbook)
 
 
   return (

@@ -23,12 +23,8 @@ const LogbookShow = () => {
     getData()
   }, [])
 
-  // const handleDelete (event) => {
-  //   console.log(event.target.value)
-  // }
 
   if (!logbook) return null
-  console.log(logbook)
 
   return (
     <>
@@ -64,12 +60,3 @@ const LogbookShow = () => {
 }
 
 export default LogbookShow    
-
-// { logbook.map(item => {
-//   return item.food.map(i => {
-//     return <div className="food-book" key={i.id}>
-//       <h6>{i.title}</h6>
-//       <p>{i.calories}</p>
-//     </div>
-//   })})
-// }

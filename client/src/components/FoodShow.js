@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button'
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import { userIsAuthenticated } from './auth/helpers/auth'
 import Select from 'react-select'
-// import FoodIndex from './FoodIndex'
 
 
 const FoodShow = () => {  
@@ -19,7 +18,6 @@ const FoodShow = () => {
   })
 
   const [selectedLogbook, setSelectedLogbook] = useState(null)
-  console.log(setFormData)
 
   
 
@@ -51,28 +49,19 @@ const FoodShow = () => {
   useEffect(() => {
     const getData = async () => {
       const token = window.localStorage.getItem('token')
-      const { data } = await axios.get('/api/logbook', { //this endpoint will need the ID - /api/logbook/{loogbook.id} -> which is taken from select?
+      const { data } = await axios.get('/api/logbook', {
         headers: {
           Authorization: `Bearer ${token}`,
         }, 
       })
       setFormData(data)
     }
-    console.log('latest', formData)
     getData()
   }, []) 
 
   const handleExistingChange = async (selected) => {
-    console.log('selected', selected)
-    console.log('selected name', selected.name)
-
     setSelectedLogbook(selected)
   }
-
-  console.log('logbook details', formData)
-
-  
-  console.log('state', selectedLogbook)
 
 
   if (!food) return null

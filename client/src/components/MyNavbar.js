@@ -15,8 +15,6 @@ const MyNavbar = () => {
     window.location.reload()
   }
 
-  console.log(handleLogout)
-
   return (
     <>
       <Navbar style={{ paddingLeft: '185px' }} bg="primary" variamt="dark"> 

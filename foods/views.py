@@ -10,7 +10,6 @@ from .serializers.common import FoodSerializer
 
 class FoodListView(APIView):
 
-    # permission_classes = (IsAuthenticated,)
 
     def get(self, _request):
         foods = Food.objects.all() #This returns everything from the database.

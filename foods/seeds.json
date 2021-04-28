@@ -26,5 +26,173 @@
     "serving": "1",
     "servingAs": "egg"
   }
+}, 
+{
+  "model": "foods.food",
+  "pk": 4,
+  "fields": {
+    "title": "porridge",
+    "calories": 185.0,
+    "protein": "5",
+    "carbs": "31",
+    "fat": "3",
+    "weight": "50",
+    "serving": "1",
+    "servingAs": "bowl"
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 5,
+    "fields": {
+    "title": "Greek yoghurt",
+    "calories": 120.0,
+    "protein": "4",
+    "carbs": "5",
+    "fat": "9",
+    "weight": "100",
+    "serving": "1",
+    "servingAs": "serving"
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 6,
+  "fields": {
+    "title": "coffee",
+    "calories": 88.0,
+    "protein": "6",
+    "carbs": "9",
+    "fat": "3",
+    "weight": "45",
+    "serving": "1",
+    "servingAs": "cup"
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 7,
+  "fields": {
+    "title": "Oatmeal",
+    "calories": 130.0,
+    "protein": "3",
+    "carbs": "27",
+    "fat": "2",
+    "weight": "32",
+    "serving": "1",
+    "servingAs": "serving"
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 8,
+  "fields": {
+    "title": "Berries (Mixed)",
+    "calories": 70.0,
+    "protein": "1",
+    "carbs": "17",
+    "fat": "1",
+    "weight": "19",
+    "serving": "1",
+    "servingAs": "cup"
+  }
+},
+{
+  "model": "foods.food",
+  "id": 9,
+  "fields": {
+    "title": "Mixed berry smoothie",
+    "calories": 279.0,
+    "protein": "0",
+    "carbs": "0",
+    "fat": "0",
+    "weight": "340",
+    "serving": "12",
+    "servingAs": "oz"
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 10,
+  "fields": {
+    "title": "Green tea",
+    "calories": 50.0,
+    "protein": "0",
+    "carbs": "12",
+    "fat": "0",
+    "weight": "200",
+    "serving": "1",
+    "servingAs": "cup"
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 11,
+  "fields": {
+    "title": "Orange juice",
+    "calories": 110.0,
+    "protein": "2",
+    "carbs": "26",
+    "fat": "1",
+    "weight": "29",
+    "serving": "1",
+    "servingAs": "glass"
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 12,
+  "fields": {
+    "title": "Apple",
+    "calories": 52.0,
+    "protein": "0",
+    "carbs": "14",
+    "fat": "0",
+    "weight": "30",
+    "serving": "1",
+    "servingAs": "medium sized"
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 13,
+  "fields": {
+    "title": "avacado",
+    "calories": 160.0,
+    "protein": "2",
+    "carbs": "9",
+    "fat": "15",
+    "weight": "27",
+    "serving": "1",
+    "servingAs": "medium sized"
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 14,
+  "fields": {
+    "title": "Cheddar cheese",
+    "calories": 110.0,
+    "protein": "7",
+    "carbs": "1",
+    "fat": "9",
+    "weight": "17",
+    "serving": "2",
+    "servingAs": "scoops"
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 15,
+  "fields": {
+    "title": "spinach omelette",
+    "calories": 255.0,
+    "protein": "19",
+    "carbs": "6",
+    "fat": "19",
+    "weight": "44",
+    "serving": "1",
+    "servingAs": "plate"
+  }
 }
 ]

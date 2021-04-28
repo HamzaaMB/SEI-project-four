@@ -14,13 +14,6 @@ const Register = () => {
     password_confirmation: '',
   })
 
-  // const [errors, setErrors] = useState({
-  //   username: '',
-  //   email: '',
-  //   password: '',
-  //   password_confirmation: '',
-  // })
-
   const handleChange = event => {
     console.log(event.target.value)
     const newFormData = { ...formData, [event.target.name]: event.target.value }
@@ -36,7 +29,6 @@ const Register = () => {
       console.log(err)
     }
   }
-  console.log(formData)
 
   return (
     <section className="register-wrapper">

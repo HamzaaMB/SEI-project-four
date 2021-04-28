@@ -29,7 +29,7 @@ class LogbookListView(APIView):
 
 
 
-class LogbookDetailView(APIView): #individual logbook to GET on front end and POST and DELETE.
+class LogbookDetailView(APIView): 
     permission_classes = (IsAuthenticated,)
 
     def get(self, _request, pk):
@@ -57,15 +57,3 @@ class LogbookDetailView(APIView): #individual logbook to GET on front end and PO
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-
-    # def post(self, request):
-    #     request.data["owner"] = request.user.id
-
-
-    # def get(self, request, pk):
-        
-        # user = request.data.get('id')
-        # logbook = Logbook.objects.get(pk=pk)
-        
-        # serialized_logbook = PopulatedLogbookSerializer(logbook)
-        # return Response(serialized_logbook.data, status=status.HTTP_200_OK)
