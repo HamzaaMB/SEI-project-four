@@ -52,7 +52,7 @@ App has been deployed with Heroku can be viewed here: [TrackMyCal](https://track
 
 TrackMyCal is an app designed for the user to add foods to their logbook and keep a diary of how many calories they are consuming. The food nutrition content is key to this app and designed for users to decide what food they want to consume while keeping track of their calorie intake. We were encouraged to clone other apps as that would give us more time to focus on functionality as the styling and concept would already be done, since I decided to go solo, knowing time would work different for me as opposed to being in a group, I based this app on one of my favourites - [myfitnesspal](https://www.myfitnesspal.com/)
 
-![screenshots](homepage)
+![screenshots](https://github.com/HamzaaMB/SEI-project-four/blob/main/client/screenshots/homepage2.png)
 
 ## Approach Taken
 
@@ -60,7 +60,7 @@ TrackMyCal is an app designed for the user to add foods to their logbook and kee
 
 First I had to plan what the relationships would look like for my project and what functionality I wanted the users to have. As I had set out to have a user who can create multiple log books which exclusively belonged to them, this was the one-to-many relationship between the user and log books. The many-to-many relationship was created between the log books and the foods available, enabling the user to add foods to their respective logbooks (demonstrated in the diagram below):
 
-![screenshots](diagram)
+![screenshots](https://github.com/HamzaaMB/SEI-project-four/blob/main/client/screenshots/diagram.png)
 
 The diagram above also shows the structure of how my ‘foods’ model would look like. After finalising the relationships and the ‘foods’ model, I planned to create dummy data in order to test. 
 
@@ -68,41 +68,41 @@ The diagram above also shows the structure of how my ‘foods’ model would loo
 
 With the planning complete, the next phase to complete the back-end and add all the functionality that my users would be able to use. We were required to use a PostgreSQL database in our project, this required us to connect Django to it. After that, the relationships were completed on the logbooks model, one as a many-to-many with the foods model and the next being a one-to-many with the user. 
 
-![screenshots](logbookmodel)
+![screenshots](https://github.com/HamzaaMB/SEI-project-four/blob/main/client/screenshots/logbookmodel.png)
 
 Once set up, I was able to test these relationships in TablePlus and look at how the relationships were working. One user is able to create many logbooks, and many logbooks can have many foods stored within them. The diagram below is a representation of the flow:
 
-![screenshots](tableglow)
+![screenshots](https://github.com/HamzaaMB/SEI-project-four/blob/main/client/screenshots/tableflow.png)
 
 Building the models, views and serializers in the Django REST Framework took  2/3 days. The most challenging part was to add a POST request in views for the logbook which enables the user to add food to it. 
 
-![screenshots](logbookdetail)
+![screenshots](https://github.com/HamzaaMB/SEI-project-four/blob/main/client/screenshots/logbookdetail.png)
 
 Another functionality that was crucial to this app, allows users to view their logbooks. Testing the data showed that any user could view all logbooks that were ever made, regardless of who the user was. Going through the Django documentation and with the help of my instructors, we were able to find a solution to filter out the users that the logbooks belonged to, adding the authentication on top, users were now able to view only their logbooks only once they were signed in. This can be seen in the objects filter below, where the owner ID is checked against the ID of the user making the request.
 
-![screenshots](logbooklist)
+![screenshots](https://github.com/HamzaaMB/SEI-project-four/blob/main/client/screenshots/logbooklist.png)
 
 On the front-end, the ability to see their logbooks, which calculates how many logbooks the user has, as well as who the user is.
 
-![screenshots](logbookfrontend)
+![screenshots](https://github.com/HamzaaMB/SEI-project-four/blob/main/client/screenshots/logbookfrontend.png)
 
 ### Other components
 
 Food index page, which shows all the foods available to view and potentially add to your logbook. Some nutrition available in this view to make the user journey easier.
 
-![screenshots](foodindex)
+![screenshots](https://github.com/HamzaaMB/SEI-project-four/blob/main/client/screenshots/foodindex.png)
 
 Food show page, which gives a more in-detail look at the nutrition content and allows the user to add to their logbooks. This part was particularly challenging, setting up the POST request to a specific logbook. 
 
-![screenshots](handleexist)
+![screenshots](https://github.com/HamzaaMB/SEI-project-four/blob/main/client/screenshots/handleexist.png)
 
 In order to tackle this, I had to create an object within the handle for submitting the request for the food to be added to the specific logbook. The ‘selectedlogbook.id’ is based on a state for when the user clicks a logbook in the React-select. Based on that information, the endpoint changes for the API.
 
-![screenshots](foodshow)
+![screenshots](https://github.com/HamzaaMB/SEI-project-four/blob/main/client/screenshots/foodshow.png)
 
 Lastly, the logbook page, which adds the food based on what the user has input and creates a total to give the user an experience of a diary being kept that calculates their calories. Reduce method was used to calculate the total of all the foods that have been input by the user.
 
-![screenshots](userlogbook)
+![screenshots](https://github.com/HamzaaMB/SEI-project-four/blob/main/client/screenshots/userlogbook.png)
 
 ## Wins, Challenges & Bugs
 
