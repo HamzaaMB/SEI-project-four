@@ -9,11 +9,10 @@ const LogbookShow = () => {
 
   const [logbook, setLogbook] = useState(null)
 
-
   useEffect(() => {
     const getData = async () => {
       const token = window.localStorage.getItem('token')
-      const { data } = await axios.get(`/api/logbook/${params.id}`, {
+      const { data } = await axios.get(`/api/logbook/${params.id}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -25,7 +24,7 @@ const LogbookShow = () => {
 
 
   if (!logbook) return null
-
+  console.log(logbook)
   return (
     <>
       <div className="bookshow-container">
